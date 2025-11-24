@@ -11,5 +11,6 @@ enum class EBlockType : uint8
 {
 	None = 0,
 	Grass,
+	Dirt,
 	Water,
 };

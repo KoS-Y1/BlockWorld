@@ -5,9 +5,10 @@
 #include "CoreMinimal.h"
 
 #include "BlockType.h"
-#include "BlockData.h"
 
 #include "BlockRegistry.generated.h"
+
+class UBlockData;
 
 UCLASS(BlueprintType)
 class BLOCKWORLDPLUGIN_API UBlockRegistry : public UDataAsset

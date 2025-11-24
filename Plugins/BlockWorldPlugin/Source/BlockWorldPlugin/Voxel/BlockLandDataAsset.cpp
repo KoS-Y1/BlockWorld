@@ -6,19 +6,18 @@
 #include "Randomizer/Randomizer.h"
 #include "UObject/FastReferenceCollector.h"
 
-void UBlockLandDataAsset::SetBlock(int32 Idx, EBlockType Type, bool Walkable)
+void UBlockLandDataAsset::SetBlock(int32 Idx, EBlockType Type)
 {
 	if (!Blocks.IsValidIndex(Idx))
 	{
 		return;
 	}
-	Blocks[Idx].bWalkable = Walkable;
 	Blocks[Idx].Type = Type;
 }
 
-void UBlockLandDataAsset::SetBlock(int32 X, int32 Y, EBlockType Type, bool Walkable)
+void UBlockLandDataAsset::SetBlock(int32 X, int32 Y, EBlockType Type)
 {
-	SetBlock(X + Y * SizeX, Type, Walkable);
+	SetBlock(X + Y * SizeX, Type);
 }
 
 EBlockType UBlockLandDataAsset::GetBlockType(int32 Idx) const
@@ -79,7 +78,7 @@ void UBlockLandDataAsset::RandomlyErodeEdges()
 			if (GetBlockType(Block.X, Block.Y) != EBlockType::None && IsAdjacentToNone(Block.X, Block.Y) &&
 				URandomizer::GetInstance()->RandomFloat() < Probability)
 			{
-				SetBlock(Block.X, Block.Y, EBlockType::None, false);
+				SetBlock(Block.X, Block.Y, EBlockType::None);
 			}
 		}
 
@@ -133,7 +132,7 @@ void UBlockLandDataAsset::RandomlyErodeEdges()
 		{
 			if (!Reachable[Idx])
 			{
-				SetBlock(Idx, EBlockType::None, false);
+				SetBlock(Idx, EBlockType::None);
 			}
 		}
 

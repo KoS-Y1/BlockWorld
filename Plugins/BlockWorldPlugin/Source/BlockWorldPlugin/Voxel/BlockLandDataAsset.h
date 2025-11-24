@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/DataAsset.h"
 
 #include "Block.h"
 
@@ -30,8 +31,8 @@ public:
 	int32 ErosionDepth;
 
 	UFUNCTION(BlueprintCallable)
-	void SetBlock(int32 Idx, EBlockType Type, bool Walkable);
-	void SetBlock(int32 X, int32 Y, EBlockType Type, bool Walkable);
+	void SetBlock(int32 Idx, EBlockType Type);
+	void SetBlock(int32 X, int32 Y, EBlockType Type);
 
 	void RandomlyErodeEdges();
 

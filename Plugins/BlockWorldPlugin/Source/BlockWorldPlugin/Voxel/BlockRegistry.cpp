@@ -3,6 +3,8 @@
 
 #include "BlockRegistry.h"
 
+#include "BlockData.h"
+
 const UBlockData* UBlockRegistry::GetData(EBlockType Type) const
 {
 	if (Blocks.Contains(Type))

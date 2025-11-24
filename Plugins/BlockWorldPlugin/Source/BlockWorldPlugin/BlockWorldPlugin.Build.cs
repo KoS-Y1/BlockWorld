@@ -9,11 +9,12 @@ public class BlockWorldPlugin : ModuleRules
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
 		PublicIncludePaths.AddRange(
-			new string[] {
-				// ... add public include paths required here ...
-			}
-			);
-				
+		new string[]
+		{
+			ModuleDirectory,
+		}
+		);
+
 		
 		PrivateIncludePaths.AddRange(
 			new string[] {
@@ -26,7 +27,8 @@ public class BlockWorldPlugin : ModuleRules
 			new string[]
 			{
 				"Core",
-				// ... add other public dependencies that you statically link with here ...
+				"CoreUObject",
+				"Engine",
 			}
 			);
 			
@@ -34,11 +36,8 @@ public class BlockWorldPlugin : ModuleRules
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"CoreUObject",
-				"Engine",
 				"Slate",
 				"SlateCore",
-				// ... add private dependencies that you statically link with here ...	
 			}
 			);
 		
@@ -49,14 +48,16 @@ public class BlockWorldPlugin : ModuleRules
 				// ... add any modules that your module loads dynamically here ...
 			}
 			);
-		
-		PublicIncludePaths.AddRange(
-		new string[]
+
+		if (Target.bBuildEditor)
 		{
-			ModuleDirectory,
+			PrivateDependencyModuleNames.AddRange(
+			new string[]
+			{
+				"UnrealEd",
+				"EditorSubsystem",
+			});
 		}
-		);
-		
 		
 	}
 }

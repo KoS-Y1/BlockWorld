@@ -14,11 +14,8 @@ struct BLOCKWORLDPLUGIN_API FBlock
 {
 	GENERATED_BODY()
 
-	FBlock() : Type(EBlockType::None), bWalkable(false) {}
+	FBlock() : Type(EBlockType::None) {}
 
 	UPROPERTY(EditAnywhere)
 	EBlockType Type;
-	
-	UPROPERTY(EditAnywhere)
-	bool bWalkable;
 };

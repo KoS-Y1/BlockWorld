@@ -3,10 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
 
 #include "BlockLand.generated.h"
 
 class UBlockRegistry;
+class UBlockLandDataAsset;
 
 UCLASS()
 class BLOCKWORLDPLUGIN_API ABlockLand : public AActor
@@ -26,7 +28,6 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Block Land")
 	UBlockRegistry *BlockRegistry;
 
-	UPROPERTY(EditAnywhere, Category = "Block Land")
 	TMap<FName, UInstancedStaticMeshComponent*> MeshInstances;
 
 	// TODO: use Store the randomized result in a non-construction-time method, like BeginPlay to make this safe
